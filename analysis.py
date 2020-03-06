@@ -50,27 +50,28 @@ class Analysis:
 			return self.parseList[title_index][1][1]
 
 def prompt_User():
+	print("++++++++++++|Welcome to the Google Search Scraper|++++++++++++")
 	search = input("What search term would you like to load?\n")
+	entry = Analysis(search)
 	# Print Options
+	print("+++++++++|Menu|++++++++")
+	print("What would you like to do?\n(0) to exit\(1) to run\n(2) to display titles\n(3) to search links\n(4) get a link from the title")
 	while True:
 		what = input("What would you like to do?\n")
 		if (what=="1"):
-			print(search.run())
+			print(entry.run())
 		elif (what=="2"):
-			print(search.titles())
+			print(entry.titles())
 		elif (what=="3"):
-			print(search.links())
-		elif (what=="f"):
+			print(entry.links())
+		elif (what=="4"):
 			index = input("What index is the link that you would like to get?\n")
-			print(search.getLinkFromTitle(index))
+			print(entry.getLinkFromTitle(index))
 		else:
-			break 
+			break
 
 def main():
 	#search = input("What is your search term?: ")
-	search = "Black Business New York"
-	entry = Analysis(search)
-	entry.run()
-	print(entry.links())
-	print(entry.getLinkFromTitle(0))
+	prompt_User()
+
 main()
